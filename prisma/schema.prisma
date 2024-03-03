@@ -17,9 +17,15 @@ model Search {
   userId Int
 }
 
+enum Role {
+  USER
+  ADMIN
+}
+
 model User {
   id       Int      @id @default(autoincrement())
   username String   @unique
+  role     Role     @default(USER)
   password String
   email    String   @unique
   phone    String   @unique
@@ -52,7 +58,7 @@ model Order {
 
 model Product {
   id          Int    @id @default(autoincrement())
-  productName String @map("product_name")
+  productName String @map("product_n  ame")
   price       Int //Float
   cart        Cart[]
   img         Img[]
