@@ -8,4 +8,6 @@ router.post('/',authenticate, todoController.createTodo)
 router.put('/:id',authenticate, todoController.updateTodo)
 router.delete('/:id',authenticate, ()=>{})
 
+router.get('/all', authenticate, todoController.getByallUser)
+
 module.exports = router

@@ -7,9 +7,9 @@ exports.getByUser = async (req, res, next) => {
     })
     res.send({todos})
   } catch (error) {
+    
     next(error)
   }
-
 }
 
 exports.createTodo = async (req, res, next) => {
@@ -47,5 +47,16 @@ exports.deleteTodo = async (req, res, next) => {
     res.json({msg: 'Delete ok', result : rs})
   }catch(err) {
     next(err)
+  }
+}
+
+exports.getByallUser = async (req, res, next) => {
+  try {
+    const users = await db.user.findMany({
+      
+    })
+    res.json({users})
+  } catch (error) {
+    next(error)
   }
 }
